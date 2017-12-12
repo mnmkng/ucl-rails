@@ -24,4 +24,8 @@ class Course < ApplicationRecord
   enumerize :study_type, in: {full_time: 1, part_time: 2}, default: :full_time, scope: true, predicates: true
   enumerize :language, in: {czech: 1, english: 2}, default: :czech, scope: true, predicates: true
 
+  validates :title, presence: true
+  validates :code, presence: true
+  validates :study_type, presence: true, numericality: :only_integer
+
 end

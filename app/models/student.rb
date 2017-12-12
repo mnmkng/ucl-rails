@@ -20,5 +20,8 @@ class Student < ApplicationRecord
 
   enumerize :study_type, in: {full_time: 1, part_time: 2}, default: :full_time, scope: true, predicates: true
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
 
 end
