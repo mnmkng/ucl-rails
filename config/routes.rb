@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root to: 'buildings#index'
+  namespace :admin do
+    resources :dashboard
+
+    root to: 'dashboard#index'
+  end
 
   resources :buildings
   resources :courses
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
   resources :students
   resources :teachers
 
+  root to: 'buildings#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
