@@ -1,0 +1,14 @@
+<%= simple_form_for(@course) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :code %>
+      <%= f.input :study_type %>
+      <%= f.input :language %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :magic_submit, cancel: courses_path %>
+    </div>
+<% end %>

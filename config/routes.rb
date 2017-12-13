@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: 'buildings#index'
 
   resources :buildings
+  resources :courses
+  resources :lessons
   resources :rooms
+  resources :students
+  resources :teachers
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
