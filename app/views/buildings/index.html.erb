@@ -15,12 +15,12 @@
         <td><%= building.title %></td>
         <td><%= building.code %></td>
         <td>
-          <%= link_to building, class: 'btn btn-default' do %>
+          <%= link_to building, class: 'btn btn-primary' do %>
               <%= fa_icon 'info-circle', text: 'Show' %>
           <% end %>
         </td>
-        <!--<td><%= link_to 'Edit', edit_building_path(building), class: 'btn btn-info' %></td>-->
-        <!--<td><%= link_to 'Destroy', building, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>-->
+        <td><%= link_to 'Edit', edit_building_path(building), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Destroy', building, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>

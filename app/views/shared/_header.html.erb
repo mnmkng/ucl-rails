@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <%= link_to 'Rezervační systém', buildings_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main"
+          aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar-main">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Budovy', buildings_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Místnosti', rooms_path, class: 'nav-link' %>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Přihlášení</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Registrace</a>
+      </li>
+    </ul>
+  </div>
+</nav>
