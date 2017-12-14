@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :dashboard
+    resource :dashboard, controller: 'dashboard'
     resources :buildings
     resources :courses
     resources :lessons

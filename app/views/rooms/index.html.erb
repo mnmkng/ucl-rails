@@ -13,24 +13,39 @@
 
   <div class="container">
 
-    <div class="row">
-      <% @buildings.each do |building| %>
 
-          <h2><%= building.title %></h2>
+    <% @buildings.each do |building| %>
 
-          <div class="col-sm-6 col-md-3">
-            <% building.rooms.each do |room| %>
-            <h2><%= room.title %></h2>
-            <p><%= room.code %></p>
-            <p><%= link_to room, class: 'btn btn-primary' do %>
-                  <%= fa_icon 'info-circle', text: 'Show' %>
-              <% end %></p>
-            <% end %>
-          </div>
+        <h2><%= building.title %></h2>
+        <!--<div class="row">-->
+        <!--<div class="col-sm-6 col-md-3">-->
 
-      <% end %>
+        <table class="table table-hover">
+          <thead>
+          <th>Název</th>
+          <th>Kód</th>
+          <th colspan="1"></th>
+          </thead>
+          <tbody>
+          <% building.rooms.each do |room| %>
+              <tr>
+                <td><%= room.title %></td>
+                <td><%= room.code %></td>
+                <td class="text-sm-right"><%= link_to room, class: 'btn btn-primary' do %>
+                      <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+                  <% end %>
+                </td>
+              </tr>
 
-    </div>
+          <% end %>
+          </tbody>
+        </table>
+
+
+        <!--</div>-->
+        <!--</div>-->
+    <% end %>
+
 
   </div>
 

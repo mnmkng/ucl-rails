@@ -1,5 +1,5 @@
 module Admin
-  class LessonsController < ApplicationController
+  class LessonsController < AdminController
 
     before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +23,7 @@ module Admin
       @lesson = Lesson.new(lesson)
 
       if @lesson.save
-        redirect_to lessons_path, notice: 'Lesson was successfully created.'
+        redirect_to admin_lessons_path, notice: 'Lesson was successfully created.'
       else
         render :new
       end
@@ -31,7 +31,7 @@ module Admin
 
     def update(lesson)
       if @lesson.update(lesson)
-        redirect_to lessons_path, notice: 'Lesson was successfully updated.'
+        redirect_to admin_lessons_path, notice: 'Lesson was successfully updated.'
       else
         render :edit
       end
@@ -39,7 +39,7 @@ module Admin
 
     def destroy
       @lesson.destroy
-      redirect_to lessons_url, notice: 'Lesson was successfully destroyed.'
+      redirect_to admin_lessons_url, notice: 'Lesson was successfully destroyed.'
     end
 
     private

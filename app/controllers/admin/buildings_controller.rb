@@ -1,5 +1,5 @@
 module Admin
-  class BuildingsController < ApplicationController
+  class BuildingsController < AdminController
 
     before_action :set_building, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +23,7 @@ module Admin
       @building = Building.new(building)
 
       if @building.save
-        redirect_to buildings_path, notice: 'Building was successfully created.'
+        redirect_to admin_buildings_path, notice: 'Building was successfully created.'
       else
         render :new
       end
@@ -31,7 +31,7 @@ module Admin
 
     def update(building)
       if @building.update(building)
-        redirect_to buildings_path, notice: 'Building was successfully updated.'
+        redirect_to admin_buildings_path, notice: 'Building was successfully updated.'
       else
         render :edit
       end
@@ -39,7 +39,7 @@ module Admin
 
     def destroy
       @building.destroy
-      redirect_to buildings_url, notice: 'Building was successfully destroyed.'
+      redirect_to admin_buildings_url, notice: 'Building was successfully destroyed.'
     end
 
     private

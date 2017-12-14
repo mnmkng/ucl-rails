@@ -1,5 +1,5 @@
 module Admin
-  class RoomsController < ApplicationController
+  class RoomsController < AdminController
 
     before_action :set_room, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +23,7 @@ module Admin
       @room = Room.new(room)
 
       if @room.save
-        redirect_to rooms_path, notice: 'Room was successfully created.'
+        redirect_to admin_rooms_path, notice: 'Room was successfully created.'
       else
         render :new
       end
@@ -31,7 +31,7 @@ module Admin
 
     def update(room)
       if @room.update(room)
-        redirect_to rooms_path, notice: 'Room was successfully updated.'
+        redirect_to admin_rooms_path, notice: 'Room was successfully updated.'
       else
         render :edit
       end
@@ -39,7 +39,7 @@ module Admin
 
     def destroy
       @room.destroy
-      redirect_to rooms_url, notice: 'Room was successfully destroyed.'
+      redirect_to admin_rooms_url, notice: 'Room was successfully destroyed.'
     end
 
     private

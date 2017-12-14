@@ -1,4 +1,4 @@
-<%= simple_form_for(@building) do |f| %>
+<%= simple_form_for([:admin, @building]) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
@@ -7,6 +7,6 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :magic_submit, cancel: buildings_path %>
+      <%= f.button :magic_submit, cancel: admin_buildings_path %>
     </div>
 <% end %>

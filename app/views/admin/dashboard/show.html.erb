@@ -1,0 +1,46 @@
+<main>
+
+  <ol class="breadcrumb bg-transparent">
+    <li class="breadcrumb-item active">Dashboard</li>
+  </ol>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Admin Dashboard</h1>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Budovy</h2>
+        <p><%= link_to 'Spravuj', admin_buildings_path, class: 'btn btn-primary' %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Místnosti</h2>
+        <p><%= link_to 'Spravuj', admin_rooms_path, class: 'btn btn-primary' %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Předměty</h2>
+        <p><%= link_to 'Spravuj', admin_courses_path, class: 'btn btn-primary' %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Lekce</h2>
+        <p><%= link_to 'Spravuj', admin_lessons_path, class: 'btn btn-primary' %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Učitelé</h2>
+        <p><%= link_to 'Spravuj', admin_teachers_path, class: 'btn btn-primary' %></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Studenti</h2>
+        <p><%= link_to 'Spravuj', admin_students_path, class: 'btn btn-primary' %></p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>
+
+</main>

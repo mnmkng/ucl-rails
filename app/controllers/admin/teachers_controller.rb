@@ -1,5 +1,5 @@
 module Admin
-  class TeachersController < ApplicationController
+  class TeachersController < AdminController
 
     before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +23,7 @@ module Admin
       @teacher = Teacher.new(teacher)
 
       if @teacher.save
-        redirect_to teachers_path, notice: 'Teacher was successfully created.'
+        redirect_to admin_teachers_path, notice: 'Teacher was successfully created.'
       else
         render :new
       end
@@ -31,7 +31,7 @@ module Admin
 
     def update(teacher)
       if @teacher.update(teacher)
-        redirect_to teachers_path, notice: 'Teacher was successfully updated.'
+        redirect_to admin_teachers_path, notice: 'Teacher was successfully updated.'
       else
         render :edit
       end
@@ -39,7 +39,7 @@ module Admin
 
     def destroy
       @teacher.destroy
-      redirect_to teachers_url, notice: 'Teacher was successfully destroyed.'
+      redirect_to admin_teachers_url, notice: 'Teacher was successfully destroyed.'
     end
 
     private

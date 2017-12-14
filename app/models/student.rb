@@ -18,7 +18,7 @@ class Student < ApplicationRecord
 
   extend Enumerize
 
-  enumerize :study_type, in: {full_time: 1, part_time: 2}, default: :full_time, scope: true, predicates: true
+  enumerize :study_type, in: {"Full-time".to_sym => 1, "Part-time".to_sym => 2}, default: "Full-time".to_sym, scope: true, predicates: true
 
   validates :first_name, presence: true
   validates :last_name, presence: true
