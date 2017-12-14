@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard
+    resources :buildings
+    resources :courses
+    resources :lessons
+    resources :rooms
+    resources :students
+    resources :teachers
 
     root to: 'dashboard#index'
   end

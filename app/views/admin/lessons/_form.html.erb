@@ -1,0 +1,16 @@
+<%= simple_form_for(@lesson) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :course %>
+      <%= f.association :teacher, :label_method => lambda { |teacher| "#{teacher.first_name} #{teacher.last_name}" } %>
+      <%= f.association :room %>
+      <%= f.input :start_at %>
+      <%= f.input :end_at %>
+      <%= f.input :duration %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :magic_submit, cancel: lessons_path %>
+    </div>
+<% end %>

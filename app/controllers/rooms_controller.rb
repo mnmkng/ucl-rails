@@ -6,6 +6,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+    @buildings = Building.all
   end
 
   def show

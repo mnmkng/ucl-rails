@@ -14,13 +14,16 @@
 
 <body>
 
-<%= render 'shared/header' %>
-
 <div class="container" id="wrapper">
+
+  <%= render 'shared/header' %>
 
   <%= render 'shared/flash_messages' %>
 
   <%= yield %>
+
+  <hr>
+  <%= render 'shared/footer' %>
 
 </div>
 <!--<script src="js/container.js"></script>-->
