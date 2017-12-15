@@ -1,9 +1,10 @@
 module Admin
   class TeachersController < AdminController
 
+    # before_action :set_courses
     before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
-    permits :first_name, :last_name, :email
+    permits :first_name, :last_name, :email, course_ids: []
 
     def index
       @teachers = Teacher.all
@@ -21,6 +22,7 @@ module Admin
 
     def create(teacher)
       @teacher = Teacher.new(teacher)
+      # @teacher.courses = @courses
 
       if @teacher.save
         redirect_to admin_teachers_path, notice: 'Teacher was successfully created.'
@@ -30,6 +32,7 @@ module Admin
     end
 
     def update(teacher)
+      # p teacher
       if @teacher.update(teacher)
         redirect_to admin_teachers_path, notice: 'Teacher was successfully updated.'
       else
@@ -46,6 +49,10 @@ module Admin
     def set_teacher(id)
       @teacher = Teacher.find(id)
     end
+
+    # def set_courses(course_ids)
+    #   @courses = Course.find(course_ids)
+    # end
 
   end
 

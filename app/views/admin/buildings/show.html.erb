@@ -1,2 +1,45 @@
 
-<h1><%= @building.title %> (<%= @building.code %>)</h1>
+
+<main>
+
+  <ol class="breadcrumb bg-transparent">
+    <li class="breadcrumb-item"><%= link_to 'Dashboard', admin_dashboard_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'Správa budov', admin_buildings_path %></li>
+    <li class="breadcrumb-item active"><%= @building.title %></li>
+  </ol>
+
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="display-6">Seznam místností v <%= @building.title %></h1>
+        </div>
+        <aside class="col-md-4">
+          <h5>Podívejte se na denní rozpis lekcí v této budově.</h5>
+          <%= link_to 'Na rozpis!', lesson_list_path(building_id: @building.id), class: 'btn btn-secondary' %>
+          <!--<a class="btn btn-secondary" href="#" role="button">Na rozpis!</a>-->
+        </aside>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <% @building.rooms.each do |room| %>
+
+          <div class="col-sm-6 col-md-3">
+            <h2><%= room.title %></h2>
+            <p><%= room.code %></p>
+            <p><%= link_to admin_room_path(room), class: 'btn btn-primary' do %>
+                  <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+              <% end %></p>
+          </div>
+
+      <% end %>
+    </div>
+
+  </div>
+
+</main>

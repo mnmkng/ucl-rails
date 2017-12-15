@@ -14,27 +14,27 @@
 
     <div class="row">
       <div class="col-md-4">
-        <h2>Budovy</h2>
+        <h2>Budovy (<%= @counts[0] %>)</h2>
         <p><%= link_to 'Spravuj', admin_buildings_path, class: 'btn btn-primary' %></p>
       </div>
       <div class="col-md-4">
-        <h2>Místnosti</h2>
+        <h2>Místnosti (<%= @counts[3] %>)</h2>
         <p><%= link_to 'Spravuj', admin_rooms_path, class: 'btn btn-primary' %></p>
       </div>
       <div class="col-md-4">
-        <h2>Předměty</h2>
+        <h2>Předměty (<%= @counts[1] %>)</h2>
         <p><%= link_to 'Spravuj', admin_courses_path, class: 'btn btn-primary' %></p>
       </div>
       <div class="col-md-4">
-        <h2>Lekce</h2>
+        <h2>Lekce (<%= @counts[2] %>)</h2>
         <p><%= link_to 'Spravuj', admin_lessons_path, class: 'btn btn-primary' %></p>
       </div>
       <div class="col-md-4">
-        <h2>Učitelé</h2>
+        <h2>Učitelé (<%= @counts[5] %>)</h2>
         <p><%= link_to 'Spravuj', admin_teachers_path, class: 'btn btn-primary' %></p>
       </div>
       <div class="col-md-4">
-        <h2>Studenti</h2>
+        <h2>Studenti (<%= @counts[4] %>)</h2>
         <p><%= link_to 'Spravuj', admin_students_path, class: 'btn btn-primary' %></p>
       </div>
     </div>

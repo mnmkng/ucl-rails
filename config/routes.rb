@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :students
   resources :teachers
+  resource :lesson_list, controller: 'lesson_list'
 
   root to: 'buildings#index'
 

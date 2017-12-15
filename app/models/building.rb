@@ -15,4 +15,8 @@ class Building < ApplicationRecord
   validates :title, presence: true
   validates :code, presence: true
 
+  def get_lessons
+
+  end
+
 end

@@ -1,2 +1,7 @@
+<ol class="breadcrumb bg-transparent">
+  <li class="breadcrumb-item"><%= link_to 'Dashboard', admin_dashboard_path %></li>
+  <li class="breadcrumb-item"><%= link_to 'Správa předmětů', admin_courses_path %></li>
+  <li class="breadcrumb-item active"><%= @course.title %></li>
+</ol>
 
-<h1><%= @teacher.title %> (<%= @teacher.code %>)</h1>
+<h1><%= @course.title %> (<%= @course.code %>)</h1>

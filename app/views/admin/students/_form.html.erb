@@ -8,6 +8,16 @@
       <%= f.input :study_type %>
     </div>
 
+    <div class="form-inputs">
+      <h3>Courses:</h3>
+      <%= f.association(
+              :courses,
+              as: :check_boxes,
+              label_html: {class: 'd-none'},
+              include_hidden: false
+          ) %>
+    </div>
+
     <div class="form-actions">
       <%= f.button :magic_submit, cancel: admin_students_path %>
     </div>

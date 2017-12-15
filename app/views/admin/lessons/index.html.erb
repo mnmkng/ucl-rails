@@ -25,8 +25,8 @@
   <% @lessons.each do |lesson| %>
       <tr>
         <td><%= lesson.course.title %></td>
-        <td><%= lesson.teacher.last_name %></td>
-        <td><%= lesson.room.title %></td>
+        <td><%= lesson.teacher.last_name unless lesson.teacher.nil? %></td>
+        <td><%= lesson.room.title unless lesson.room.nil? %></td>
         <td><%= lesson.start_at %></td>
         <td><%= lesson.end_at %></td>
         <td><%= lesson.duration %></td>

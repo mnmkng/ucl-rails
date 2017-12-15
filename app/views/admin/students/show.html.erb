@@ -1,2 +1,19 @@
+<ol class="breadcrumb bg-transparent">
+  <li class="breadcrumb-item"><%= link_to 'Dashboard', admin_dashboard_path %></li>
+  <li class="breadcrumb-item"><%= link_to 'Správa studentů', admin_students_path %></li>
+  <li class="breadcrumb-item active"><%= @student.first_name %> <%= @student.last_name %></li>
+</ol>
 
-<h1><%= @student.title %> (<%= @student.code %>)</h1>
+<div class="jumbotron">
+  <h1><%= @student.first_name %> <%= @student.last_name %></h1>
+  <p><%= @student.email %></p>
+</div>
+
+<h2>Předměty:</h2>
+<ul>
+  <% @student.courses.each do |course| %>
+      <li>
+        <%= course.title %>
+      </li>
+  <% end %>
+</ul>

@@ -3,7 +3,7 @@ module Admin
 
     before_action :set_student, only: [:show, :edit, :update, :destroy]
 
-    permits :first_name, :last_name, :email, :study_type
+    permits :first_name, :last_name, :email, :study_type, course_ids: []
 
     def index
       @students = Student.all

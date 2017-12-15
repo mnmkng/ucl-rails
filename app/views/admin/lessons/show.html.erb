@@ -1,2 +1,22 @@
+<ol class="breadcrumb bg-transparent">
+  <li class="breadcrumb-item"><%= link_to 'Dashboard', admin_dashboard_path %></li>
+  <li class="breadcrumb-item"><%= link_to 'Správa lekcí', admin_lessons_path %></li>
+  <li class="breadcrumb-item active">Lekce</li>
+</ol>
 
-<h1><%= @lesson.title %> (<%= @lesson.code %>)</h1>
+<div class="jumbotron">
+  <h1><%= @lesson.course.title %></h1>
+  <p><%= @lesson.start_at %> <%= @lesson.end_at %></p>
+</div>
+
+<h2>Lektor:</h2>
+<p><%= @lesson.teacher.first_name %> <%= @lesson.teacher.last_name %></p>
+
+<h2>Studenti:</h2>
+<ul>
+  <% @lesson.course.students.each do |st| %>
+      <li>
+        <%= st.first_name %> <%= st.last_name %>
+      </li>
+  <% end %>
+</ul>

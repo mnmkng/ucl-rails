@@ -21,4 +21,5 @@ class Lesson < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   validates :course, presence: true
+
 end
