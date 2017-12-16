@@ -2,7 +2,7 @@ module Services
 
   require 'time'
 
-  # Taken from an earlier project of mine where the class
+  # Taken and refactored from an earlier project of mine where the class
   # was used to parse uuOS API responses.
 
 
@@ -38,8 +38,6 @@ module Services
     # Currently only runs #mark_as_busy
     # Method ready to house other actions connected to making schedule.
     #
-    # @param date_start_string [String] takes string because ResultList dates are strings
-    # @param date_end_string [String]
     # @return [Array] of either one or more DaySchedule
     def make_schedule(date_start, date_end, name)
       mark_as_busy(date_start, date_end, name)
@@ -51,14 +49,9 @@ module Services
     # If it falls over multiple days, new instances of DaySchedule
     # are chained into a singly-linked list in the next_day variable.
     #
-    # @param date_start_string [String] takes string because ResultList dates are strings
-    # @param date_end_string [String]
     # @return [Array] of either one or more DaySchedule
     def mark_as_busy(d_start, d_end, name)
 
-      # gets starting and end Time objects of the interval
-      # d_start = Time.parse(date_start_string).to_date
-      # d_end = Time.parse(date_end_string).to_date
       # if the days are equal (one day appointment)
       if d_start.to_date == d_end.to_date
         start = to_index(d_start)
@@ -85,7 +78,6 @@ module Services
     # [0] = 8:00 - 8:15, [1] = 8:15 - 8:20, ... [39] = 17:45 - 18:00
     # Times before 8:00 are thrown away and parsed as starting at 8:00.
     #
-    # @param date_string [String]
     # @return [Fixnum] index
     def to_index(time)
       # time = Time.parse(date_time)
@@ -99,10 +91,7 @@ module Services
       return index < 0 ? 0 : index
     end
 
-    # Just adds a day to the given string.
-    #
-    # @param date_string [String]
-    # @return [String] time in iso8601 format
+    # Just adds a day to the given date.
     def add_day(day)
       # day = Time.parse(date_string).to_date
       next_day = day.midnight + 1.day
