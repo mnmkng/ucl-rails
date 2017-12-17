@@ -6,7 +6,7 @@ module Admin
     permits :title, :code, :building_id
 
     def index
-      @rooms = Room.all
+      @rooms = Room.includes(:building)
     end
 
     def show
@@ -44,7 +44,7 @@ module Admin
 
     private
     def set_room(id)
-      @room = Room.find(id)
+      @room = Room.includes(lessons: [:course]).find(id)
     end
 
   end

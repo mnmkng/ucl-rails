@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
-    @buildings = Building.all
+    @buildings = Building.includes(:rooms)
   end
 
   def show(id)

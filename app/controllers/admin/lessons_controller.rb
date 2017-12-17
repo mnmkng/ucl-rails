@@ -6,7 +6,7 @@ module Admin
     permits :start_at, :end_at, :duration, :room_id, :teacher_id, :course_id
 
     def index
-      @lessons = Lesson.all
+      @lessons = Lesson.includes(:course, :teacher, :room)
     end
 
     def show
