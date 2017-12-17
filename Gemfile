@@ -37,6 +37,8 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'bh', '~> 1.3', '>= 1.3.6'
 
+gem 'seed_dump'
+
 gem 'simple_form', '~> 3.5'
 gem 'simple_form-magic_submit', '~> 1.2'
 
