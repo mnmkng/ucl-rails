@@ -9,31 +9,35 @@
   </div>
 </div>
 
-<table class="table table-striped table-hover">
-  <thead>
-  <tr>
-    <th>Název</th>
-    <th>Kód</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @buildings.each do |building| %>
+<% if @buildings.empty? %>
+    <h2>Žádné budovy nebyly nalezeny.</h2>
+<% else %>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= building.title %></td>
-        <td><%= building.code %></td>
-        <td>
-          <%= link_to admin_building_path(building), class: 'btn btn-primary' do %>
-              <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Uprav', edit_admin_building_path(building), class: 'btn btn-info' %></td>
-        <td><%= link_to 'Smaž', admin_building_path(building), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        <th>Název</th>
+        <th>Kód</th>
+        <th colspan="3"></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @buildings.each do |building| %>
+          <tr>
+            <td><%= building.title %></td>
+            <td><%= building.code %></td>
+            <td>
+              <%= link_to admin_building_path(building), class: 'btn btn-primary' do %>
+                  <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+              <% end %>
+            </td>
+            <td><%= link_to 'Uprav', edit_admin_building_path(building), class: 'btn btn-info' %></td>
+            <td><%= link_to 'Smaž', admin_building_path(building), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
 
 <br>
 

@@ -1,35 +1,27 @@
-<h1>Teachers</h1>
+<h1>Lektoři</h1>
 
-<table class="table table-striped table-hover">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Email</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @teachers.each do |teacher| %>
+<% if @teachers.empty? %>
+    <h2>Žádní lektoři nebyli nalezeni.</h2>
+<% else %>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= teacher.first_name %></td>
-        <td><%= teacher.last_name %></td>
-        <td><%= teacher.email %></td>
-        <td>
-          <%= link_to teacher, class: 'btn btn-primary' do %>
-              <%= fa_icon 'info-circle', text: 'Show' %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher), class: 'btn btn-info' %></td>
-        <td><%= link_to 'Destroy', teacher, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @teachers.each do |teacher| %>
+          <tr>
+            <td><%= teacher.first_name %></td>
+            <td><%= teacher.last_name %></td>
+            <td><%= teacher.email %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
 
 <br>
-
-<%= link_to new_teacher_path, class: 'btn btn-primary' do %>
-    <%= fa_icon 'plus', text: 'New Teacher' %>
-<% end %>

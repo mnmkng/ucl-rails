@@ -8,35 +8,40 @@
     <h1 class="display-4">Správa studentů</h1>
   </div>
 </div>
-<table class="table table-striped table-hover">
-  <thead>
-  <tr>
-    <th>Jméno</th>
-    <th>Příjmení</th>
-    <th>Email</th>
-    <th>Forma studia</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @students.each do |student| %>
+<% if @students.empty? %>
+    <h2>Žádní studenti nebyli nalezeni.</h2>
+<% else %>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.study_type %></td>
-        <td>
-          <%= link_to admin_student_path(student), class: 'btn btn-primary' do %>
-              <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Uprav', edit_admin_student_path(student), class: 'btn btn-info' %></td>
-        <td><%= link_to 'Smaž', admin_student_path(student), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        <th>Jméno</th>
+        <th>Příjmení</th>
+        <th>Email</th>
+        <th>Forma studia</th>
+        <th colspan="3"></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @students.each do |student| %>
+          <tr>
+            <td><%= student.first_name %></td>
+            <td><%= student.last_name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.study_type %></td>
+            <td>
+              <%= link_to admin_student_path(student), class: 'btn btn-primary' do %>
+                  <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+              <% end %>
+            </td>
+            <td><%= link_to 'Uprav', edit_admin_student_path(student), class: 'btn btn-info' %></td>
+            <td><%= link_to 'Smaž', admin_student_path(student), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
 
 <br>
 

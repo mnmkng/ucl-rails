@@ -1,35 +1,34 @@
-<h1>Lessons</h1>
+<h1>Lekce</h1>
 
-<table class="table table-striped table-hover">
-  <thead>
-  <tr>
-    <th>Course</th>
-    <th>Teacher</th>
-    <th>Room</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Duration</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @lessons.each do |lesson| %>
+<% if @lessons.empty? %>
+    <h2>Žádné lekce nebyly nalezeny.</h2>
+<% else %>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= lesson.course.title %></td>
-        <td><%= lesson.teacher.last_name unless lesson.teacher.nil? %></td>
-        <td><%= lesson.room.title unless lesson.room.nil? %></td>
-        <td><%= lesson.start_at %></td>
-        <td><%= lesson.end_at %></td>
-        <td><%= lesson.duration %></td>
-        <td>
-          <%= link_to lesson, class: 'btn btn-primary' do %>
-              <%= fa_icon 'info-circle', text: 'Show' %>
-          <% end %>
-        </td>
+        <th>Course</th>
+        <th>Teacher</th>
+        <th>Room</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Duration</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @lessons.each do |lesson| %>
+          <tr>
+            <td><%= lesson.course.title %></td>
+            <td><%= lesson.teacher.last_name unless lesson.teacher.nil? %></td>
+            <td><%= lesson.room.title unless lesson.room.nil? %></td>
+            <td><%= lesson.start_at %></td>
+            <td><%= lesson.end_at %></td>
+            <td><%= lesson.duration %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% end %>
 
 <br>

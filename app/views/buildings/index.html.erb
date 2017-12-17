@@ -13,19 +13,22 @@
 
   <div class="container">
 
-    <div class="row">
-      <% @buildings.each do |building| %>
+    <% if @buildings.empty? %>
+        <h2>Žádné budovy nebyly nalezeny.</h2>
+    <% else %>
+        <div class="row">
+          <% @buildings.each do |building| %>
 
-          <div class="col-sm-6 col-md-3">
-            <h2><%= building.title %></h2>
-            <p><%= building.code %></p>
-            <p><%= link_to building, class: 'btn btn-primary' do %>
-                  <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
-              <% end %></p>
-          </div>
+              <div class="col-sm-6 col-md-3">
+                <h2><%= building.title %></h2>
+                <p><%= building.code %></p>
+                <p><%= link_to building, class: 'btn btn-primary' do %>
+                      <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+                  <% end %></p>
+              </div>
 
-      <% end %>
-
+          <% end %>
+    <% end %>
     </div>
 
   </div>

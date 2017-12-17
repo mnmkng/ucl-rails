@@ -9,33 +9,39 @@
   </div>
 </div>
 
-<table class="table table-striped table-hover">
-  <thead>
-  <tr>
-    <th>Jméno</th>
-    <th>Příjmení</th>
-    <th>Email</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @teachers.each do |teacher| %>
+<% if @teachers.empty? %>
+    <h2>Žádní lektoři nebyli nalezeni.</h2>
+<% else %>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= teacher.first_name %></td>
-        <td><%= teacher.last_name %></td>
-        <td><%= teacher.email %></td>
-        <td>
-          <%= link_to admin_teacher_path(teacher), class: 'btn btn-primary' do %>
-              <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Uprav', edit_admin_teacher_path(teacher), class: 'btn btn-info' %></td>
-        <td><%= link_to 'Smaž', admin_teacher_path(teacher), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        <th>Jméno</th>
+        <th>Příjmení</th>
+        <th>Email</th>
+        <th colspan="3"></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @teachers.each do |teacher| %>
+          <tr>
+            <td><%= teacher.first_name %></td>
+            <td><%= teacher.last_name %></td>
+            <td><%= teacher.email %></td>
+            <td>
+              <%= link_to admin_teacher_path(teacher), class: 'btn btn-primary' do %>
+                  <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+              <% end %>
+            </td>
+            <td><%= link_to 'Uprav', edit_admin_teacher_path(teacher), class: 'btn btn-info' %></td>
+            <td><%= link_to 'Smaž', admin_teacher_path(teacher), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+
+
 
 <br>
 

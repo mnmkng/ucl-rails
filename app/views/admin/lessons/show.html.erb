@@ -10,13 +10,24 @@
 </div>
 
 <h2>Lektor:</h2>
-<p><%= @lesson.teacher.first_name %> <%= @lesson.teacher.last_name %></p>
+<% if @lesson.teacher.nil? %>
+    <h2>Lekce nemá přiřazeného vyučujícího.</h2>
+<% else %>
+    <p><%= @lesson.teacher.first_name %> <%= @lesson.teacher.last_name %></p>
+<% end %>
 
 <h2>Studenti:</h2>
-<ul>
-  <% @lesson.course.students.each do |st| %>
-      <li>
-        <%= st.first_name %> <%= st.last_name %>
-      </li>
-  <% end %>
-</ul>
+<% if @lesson.course.students.empty? %>
+    <h2>Na lekci nejsou přihlášení žádní studenti.</h2>
+<% else %>
+    <ul>
+      <% @lesson.course.students.each do |st| %>
+          <li>
+            <%= st.first_name %> <%= st.last_name %>
+          </li>
+      <% end %>
+    </ul>
+
+<% end %>
+
+

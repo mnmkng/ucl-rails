@@ -13,40 +13,45 @@
 
   <div class="container">
 
+    <% if @buildings.empty? %>
+        <h2>Žádné budovy nebyly nalezeny.</h2>
+    <% else %>
+        <% @buildings.each do |building| %>
 
-    <% @buildings.each do |building| %>
+            <h2><%= building.title %></h2>
 
-        <h2><%= building.title %></h2>
-        <!--<div class="row">-->
-        <!--<div class="col-sm-6 col-md-3">-->
+            <% if building.rooms.empty? %>
+                <h2>Žádné místnosti nebyly nalezeny.</h2>
+            <% else %>
+                <table class="table table-hover">
+                  <thead>
+                  <tr>
+                    <th>Název</th>
+                    <th>Kód</th>
+                    <th colspan="1"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% building.rooms.each do |room| %>
+                      <tr>
+                        <td><%= room.title %></td>
+                        <td><%= room.code %></td>
+                        <td class="text-sm-right"><%= link_to room, class: 'btn btn-primary' do %>
+                              <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
+                          <% end %>
+                        </td>
+                      </tr>
 
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th>Název</th>
-            <th>Kód</th>
-            <th colspan="1"></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% building.rooms.each do |room| %>
-              <tr>
-                <td><%= room.title %></td>
-                <td><%= room.code %></td>
-                <td class="text-sm-right"><%= link_to room, class: 'btn btn-primary' do %>
-                      <%= fa_icon 'info-circle', text: 'Zobraz detail' %>
                   <% end %>
-                </td>
-              </tr>
+                  </tbody>
+                </table>
+            <% end %>
 
-          <% end %>
-          </tbody>
-        </table>
+        <% end %>
+
+  <% end %>
 
 
-        <!--</div>-->
-        <!--</div>-->
-    <% end %>
 
 
   </div>

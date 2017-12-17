@@ -10,10 +10,14 @@
 </div>
 
 <h2>Předměty:</h2>
-<ul>
-  <% @student.courses.each do |course| %>
-      <li>
-        <%= course.title %>
-      </li>
-  <% end %>
-</ul>
+<% if @student.courses.empty? %>
+    <h2>Student nemá přihlášené žádné předměty.</h2>
+<% else %>
+    <ul>
+      <% @student.courses.each do |course| %>
+          <li>
+            <%= course.title %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>

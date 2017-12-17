@@ -10,10 +10,14 @@
 </div>
 
 <h2>Předměty:</h2>
+<% if @teacher.courses.empty? %>
+    <h2>Lektor nevyučuje žádné předměty.</h2>
+<% else %>
     <ul>
       <% @teacher.courses.each do |course| %>
-        <li>
-          <%= course.title %>
-        </li>
+          <li>
+            <%= course.title %>
+          </li>
       <% end %>
     </ul>
+<% end %>
