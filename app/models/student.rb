@@ -13,7 +13,7 @@
 
 class Student < ApplicationRecord
 
-  has_many :student_assignments
+  has_many :student_assignments, dependent: :destroy
   has_many :courses, through: :student_assignments
 
   extend Enumerize

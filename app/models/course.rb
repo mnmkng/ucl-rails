@@ -14,9 +14,9 @@
 class Course < ApplicationRecord
 
   has_many :lessons
-  has_many :teacher_assignments
+  has_many :teacher_assignments, dependent: :destroy
   has_many :teachers, through: :teacher_assignments
-  has_many :student_assignments
+  has_many :student_assignments, dependent: :destroy
   has_many :students, through: :student_assignments
 
   extend Enumerize
