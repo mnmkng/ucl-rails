@@ -22,4 +22,19 @@ class Lesson < ApplicationRecord
   validates :end_at, presence: true
   validates :course, presence: true
 
+  def self.day(date)
+    translations = {
+        Monday: 'Pondělí',
+        Tuesday: 'Úterý',
+        Wednesday: 'Středa',
+        Thursday: 'Čtvrtek',
+        Friday: 'Pátek',
+        Saturday: 'Sobota',
+        Sunday: 'Neděle'
+    }
+    day = date.strftime('%A')
+
+    translations[day.to_sym]
+  end
+
 end

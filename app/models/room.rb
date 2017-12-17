@@ -12,7 +12,7 @@
 
 class Room < ApplicationRecord
   belongs_to :building
-  has_many :lessons
+  has_many :lessons, dependent: :nullify
 
   validates :title, presence: true
   validates :code, presence: true
@@ -23,7 +23,7 @@ class Room < ApplicationRecord
     # dates are hardcoded to "lock down" the app for evaluation with seed data
     lessons = self.lessons.where(
         'start_at >= :start_at AND end_at <= :end_at',
-        {start_at: Date.new(2017,12,15), end_at: Date.new(2017,12,20)}
+        {start_at: Date.new(2017,12,12), end_at: Date.new(2017,12,17)}
     )
     current = Services::DaySchedule.new
     lessons.each do |lesson|

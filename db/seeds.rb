@@ -50,17 +50,17 @@ courses = [
 seed(Course, courses)
 
 lessons = [
-    {start_at: "2017-12-15 09:00:00", end_at: "2017-12-15 10:00:00", duration: nil, room_id: 1, teacher_id: 2, course_id: 1},
-    {start_at: "2017-12-16 13:00:00", end_at: "2017-12-17 14:30:00", duration: nil, room_id: 2, teacher_id: 1, course_id: 1},
-    {start_at: "2017-12-15 11:00:00", end_at: "2017-12-15 12:00:00", duration: nil, room_id: 1, teacher_id: 4, course_id: 2},
-    {start_at: "2017-12-15 17:00:00", end_at: "2017-12-15 18:30:00", duration: 90, room_id: 1, teacher_id: 3, course_id: 3},
-    {start_at: "2017-12-14 10:07:00", end_at: "2017-12-14 10:08:00", duration: nil, room_id: 1, teacher_id: 2, course_id: 4},
-    {start_at: "2017-12-16 10:07:00", end_at: "2017-12-16 15:14:00", duration: nil, room_id: 1, teacher_id: 1, course_id: 4},
-    {start_at: "2017-12-17 12:15:00", end_at: "2017-12-18 14:15:00", duration: nil, room_id: 1, teacher_id: 4, course_id: 5},
-    {start_at: "2017-12-19 08:00:00", end_at: "2017-12-19 10:00:00", duration: nil, room_id: 1, teacher_id: 3, course_id: 3},
-    {start_at: "2017-12-17 10:06:00", end_at: "2017-12-17 11:14:00", duration: nil, room_id: 4, teacher_id: 1, course_id: 2},
-    {start_at: "2017-12-17 10:00:00", end_at: "2017-12-17 15:00:00", duration: nil, room_id: 6, teacher_id: 4, course_id: 4},
-    {start_at: "2017-12-15 10:20:00", end_at: "2017-12-17 12:30:00", duration: nil, room_id: 3, teacher_id: 1, course_id: 4}
+    {start_at: "2017-12-12 09:00:00", end_at: "2017-12-12 10:00:00", duration: nil, room_id: 1, teacher_id: 2, course_id: 1},
+    {start_at: "2017-12-13 13:00:00", end_at: "2017-12-14 14:30:00", duration: nil, room_id: 2, teacher_id: 1, course_id: 1},
+    {start_at: "2017-12-12 11:00:00", end_at: "2017-12-12 12:00:00", duration: nil, room_id: 1, teacher_id: 4, course_id: 2},
+    {start_at: "2017-12-12 17:00:00", end_at: "2017-12-12 18:30:00", duration: 90, room_id: 1, teacher_id: 3, course_id: 3},
+    {start_at: "2017-12-11 10:07:00", end_at: "2017-12-11 10:08:00", duration: nil, room_id: 1, teacher_id: 2, course_id: 4},
+    {start_at: "2017-12-13 10:07:00", end_at: "2017-12-13 15:14:00", duration: nil, room_id: 1, teacher_id: 1, course_id: 4},
+    {start_at: "2017-12-14 12:15:00", end_at: "2017-12-15 14:15:00", duration: nil, room_id: 1, teacher_id: 4, course_id: 5},
+    {start_at: "2017-12-16 08:00:00", end_at: "2017-12-16 10:00:00", duration: nil, room_id: 1, teacher_id: 3, course_id: 3},
+    {start_at: "2017-12-14 10:06:00", end_at: "2017-12-14 11:14:00", duration: nil, room_id: 4, teacher_id: 1, course_id: 2},
+    {start_at: "2017-12-14 10:00:00", end_at: "2017-12-14 15:00:00", duration: nil, room_id: 6, teacher_id: 4, course_id: 4},
+    {start_at: "2017-12-12 10:20:00", end_at: "2017-12-14 12:30:00", duration: nil, room_id: 3, teacher_id: 1, course_id: 4}
 ]
 seed(Lesson, lessons)
 

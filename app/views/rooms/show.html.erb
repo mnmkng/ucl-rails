@@ -62,7 +62,7 @@
       <tbody>
       <% timetable.each do |day, schedule| %>
           <tr>
-            <td><%= day.strftime('%d / %m') %></td>
+            <td><%= Lesson.day(day) %></td>
             <%= schedule.to_html_row %>
           </tr>
       <% end %>
