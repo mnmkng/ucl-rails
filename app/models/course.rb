@@ -13,7 +13,7 @@
 
 class Course < ApplicationRecord
 
-  has_many :lessons
+  has_many :lessons, dependent: :destroy
   has_many :teacher_assignments, dependent: :destroy
   has_many :teachers, through: :teacher_assignments
   has_many :student_assignments, dependent: :destroy
