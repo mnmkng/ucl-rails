@@ -1,5 +1,6 @@
 <ol class="breadcrumb bg-transparent">
-  <li class="breadcrumb-item"><%= link_to 'Seznam místností', rooms_path %></li>
+  <li class="breadcrumb-item"><%= link_to 'Seznam budov', buildings_path %></li>
+  <li class="breadcrumb-item"><%= link_to @room.building.title, building_path(@room.building) %></li>
   <li class="breadcrumb-item active"><%= @room.title %></li>
 </ol>
 

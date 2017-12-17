@@ -1,19 +1,49 @@
 <main>
 
   <ol class="breadcrumb bg-transparent">
-    <li class="breadcrumb-item active">Dashboard</li>
+    <li class="breadcrumb-item"><%= link_to 'Seznam budov', buildings_path %></li>
+    <li class="breadcrumb-item"><%= link_to @building.title, building_path(@building) %></li>
+    <li class="breadcrumb-item active">Rozpis lekcí</li>
   </ol>
 
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-4">Rozpis lekcí v budově <%= @building.title %></h1>
+      <h2> dne 15.12.2O17 </h2> <!-- hardcoded for seed data -->
     </div>
   </div>
 
   <div class="container">
+    <% lessons = @building.list_lessons %>
+    <% if lessons.empty? %>
+      <h2>V této budově neprobíhají žádné lekce.</h2>
+    <% else %>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Předmět</th>
+            <th>Místnost</th>
+            <th>Lektor</th>
+            <th>Od</th>
+            <th>Do</th>
+            <th>Studenti</th>
+          </tr>
+          </thead>
+          <tbody>
 
-    <%  %>
-
+          <% lessons.each do |l| %>
+              <tr>
+                <td><%= l.course.title %></td>
+                <td><%= l.room.title %></td>
+                <td><%= l.teacher.first_name %> <%= l.teacher.last_name %></td>
+                <td><%= l.start_at.strftime('%H:%M') %></td>
+                <td><%= l.end_at.strftime('%H:%M') %></td>
+                <td><%= l.course.students.count %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
   </div>
 
 </main>

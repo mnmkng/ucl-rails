@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :students
     resources :teachers
 
-    root to: 'dashboard#index'
+    root to: 'dashboard#show'
   end
 
   resources :buildings
