@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
   end
 
   def show(id)
-    @room = Room.find(id)
+    @room = Room.includes(lessons: [:course]).find(id)
   end
 
 end
